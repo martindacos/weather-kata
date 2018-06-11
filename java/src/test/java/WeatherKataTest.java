@@ -40,13 +40,12 @@ public class WeatherKataTest {
         assertTrue("I don't know how to test it", true);
     }
 
-    @Test
+    @Test(expected = OutOfDate.class)
     public void there_is_no_prediction_for_more_than_5_days() throws IOException {
         Forecast forecast = new Forecast();
 
         Date tomorrow = new Date(new Date().getTime() + (ONE_DAY * 6));
 
         String prediction = forecast.predict("Madrid",tomorrow, false);
-        assertEquals("", prediction);
     }
 }
